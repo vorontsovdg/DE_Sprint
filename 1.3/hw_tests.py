@@ -1,6 +1,6 @@
 from palindrome import palindrome
 from arabib_to_roman import arabic_to_roman
-
+from brackets_validity_check import brackets_validity_check
 
 "Test 1"
 testwords_dict = {'taco cat': True, 'rotator': True, 'black cat': False}
@@ -15,5 +15,11 @@ for arabic, roman in testdict.items():
         f'number:{arabic} returns {arabic_to_roman(arabic)}, must be {roman} -- > test failed!'
 
 
+
+"Test 3"
+testdict = {'[{}({})]':True, '{]':False, '{':False}
+for brackets_string, bool_flag in testdict.items():
+    assert brackets_validity_check(brackets_string) == bool_flag, \
+        f'{brackets_string} validity test failed!'
 
 print('All tests OK!')
