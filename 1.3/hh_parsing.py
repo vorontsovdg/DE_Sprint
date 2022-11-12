@@ -1,4 +1,26 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
-link = 'https://hh.ru/search/vacancy?area=113&search_field=name&text=python+%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA&from=suggest_post&customDomain=1&hhtmFrom=vacancy_search_list'
+link = 'http://api.hh.ru/vacancies?text=python&per_page=100&page=0'
+
+
+
+data = requests.get(link).json()
+
+l = []
+
+for item in data['items']:
+    title = item.get('name', None)
+    salary_from = item.get('salary', dict()).get('from', None)
+    salary_to = item.get('salary', dict()).get('to', None)
+    salary_currency = item.get('salary', dict()).get('currency')
+    region = item.get('area', dict()).get('name', None)
+    work_experience = item.get('snippet', dict()).get('requirement', None)
+    tmpDict = {
+        'title':title,
+        'work_experience':work_experience,
+        'salary':f'{salary_from} - {salary_to} {salary_currency}',
+        'region':region
+    }
+    l.append(tmpDict)
