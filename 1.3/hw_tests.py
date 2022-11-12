@@ -18,7 +18,7 @@ for arabic, roman in testdict.items():
 
 
 "Test 3"
-testdict = {'[{}({})]':True, '{]':False, '{':False}
+testdict = {'[{}({})]':True, '{]':False, '{':False, ')()(':False}
 for brackets_string, bool_flag in testdict.items():
     assert brackets_validity_check(brackets_string) == bool_flag, \
         f'{brackets_string} validity test failed!'
