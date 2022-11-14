@@ -1,0 +1,22 @@
+//6. Написать программу, которая определяет максимальное число из введённой с клавиатуры последовательности положительных чисел. (длина последовательности неограниченна)
+# include <iostream>
+using namespace std;
+
+int main() {
+    int a;
+    int max=0;
+    while (true) {
+        cout << "Type any positive number, to stop - type 0.\nYour number: ";
+        cin >> a;
+        if (a == 0){
+            break;
+            }
+        else {
+            if (a > max) {
+                max = a;
+                }
+        }
+    }
+    cout << "Max number is " << max << endl;
+    return 0;
+}

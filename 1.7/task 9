@@ -1,0 +1,101 @@
+//9. Создайте структуру с именем student, содержащую поля: фамилия и инициалы, номер группы, успеваемость (массив из пяти элементов). Создать массив из десяти элементов такого типа, упорядочить записи по возрастанию среднего балла. Добавить возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 4 или 5.
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+struct STUDENT
+{
+    public:
+        string surname;
+        string fio;
+        int group;
+        int marks[5];
+        double avg;
+};
+
+bool compare(STUDENT a, STUDENT b)
+{
+    if (a.avg < b.avg) 
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+int main()
+{
+    //Преднабор фамилий, имен и групп для рандомного заполнения
+    string list_of_surnames[7] = {"Ivanov", "Petrov", "Sidorov", "Vorontsov", "Gusev", "Krotov", "Laskov"};
+    string list_of_fio[6] = {"A.B", "D.G.", "I.V.", "H.A.", "E.O.", "V.P."};
+    int list_of_groups[3] = {221, 222, 223};
+    
+    STUDENT students[10];
+    //Заполняем таблицу студентов
+    for (int i=0; i<10; i++)
+    {
+        students[i].surname = list_of_surnames[rand()%7];
+        students[i].fio = list_of_fio[rand()%6];
+        students[i].group = list_of_groups[rand()%3];
+        for (int j=0; j<5; j++)
+        {
+            int m = 3 + rand() % 3;
+            students[i].marks[j] = m;
+            students[i].avg += m;
+        }
+        students[i].avg /= 5.0;
+    }
+    cout << "Before sorting" << endl;
+        for (int i=0; i<10; i++)
+    {
+        cout << students[i].surname << setw(10) << students[i].fio << setw(10) << students[i].group << setw(10) << students[i].avg << endl;
+    }
+    
+    //Сортировка массива
+    cout << "Sorting students \n";
+    sort(students, students + 10, compare);
+    
+
+    
+        for (int i=0; i<10; i++)
+    {
+        cout << students[i].surname << setw(10) << students[i].fio << setw(10) << students[i].group << setw(10) << students[i].avg << endl;
+    }
+    
+    //Выводим студентов, у которых только 4 и 5
+    cout << "Best students" << endl;
+    bool check = false;
+    int number_of_good_students=0;
+    for (int i=0; i < 10; i++)
+    {
+        for (int j=0; j<5; j++)
+        {
+            if (students[i].marks[j] < 4)
+            {
+                check = false;
+                break;
+            }
+            else {
+                check = true;
+                }
+        }
+        if (check) {
+            number_of_good_students += 1;
+            cout << students[i].surname << setw(10) << students[i].group << endl;
+        }
+    }
+    if (number_of_good_students == 0)
+    {
+        cout << "There are not good students" << endl;
+    }
+    
+    return 0;
+}
+
+
+            
+        

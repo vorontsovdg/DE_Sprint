@@ -1,0 +1,17 @@
+// 4. Проверить на чётность введённое с клавиатуры число
+# include <iostream>
+using namespace std;
+
+int main()
+{
+    int a;
+    cout << "Type any number: ";
+    cin >> a;
+    if (a % 2 == 0) {
+        cout << "number " << a << " is even" << endl;
+    }
+    else {
+        cout << "number " << a << " is odd" << endl;
+    }
+    return 0;
+}

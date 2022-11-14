@@ -1,0 +1,61 @@
+//8. Необходимо создать двумерный массив 5 х 5. Далее написать функцию, которая заполнит его случайными числами от 30 до 60. Создать еще две функции, которые находят максимальный и минимальный элементы этого двумерного массива.
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+ 
+int** Create(int n) // создание 
+{
+    int** a = new int* [n];
+    for (int i = 0; i < n; i++)
+        a[i] = new int[n];
+    return a;
+}
+ 
+void Fill_arr(int** a, int n) // заполнение 
+{    
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            a[i][j]=30 + rand()%31;
+}
+
+int Max(int**a, int n)
+{
+    int Max = a[0][0];
+    for (int i=0; i < n; i++)
+        for (int j=0; j < n; j++)
+        {
+            if (Max < a[i][j])
+            {
+                Max = a[i][j];
+            }
+        }
+    return Max;
+}
+
+int Min(int** a, int n)
+{
+    int Min = a[0][0];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+        {
+            if (Min > a[i][j]) 
+            {
+                Min = a[i][j];
+            }
+        }
+    return Min;
+}
+
+ 
+int main()
+{
+    int n=5,**a;
+    int max_val, min_val;
+    a=Create(n);
+    Fill_arr(a, n);
+    max_val = Max(a, n);
+    min_val = Min(a, n);
+    cout << "Max value in array: " << max_val << endl;
+    cout << "Min value in array: " << min_val << endl;
+return 0;
+}

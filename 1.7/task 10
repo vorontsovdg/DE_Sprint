@@ -1,0 +1,99 @@
+//10. Создайте структуру с именем train, содержащую поля: название пункта назначения, номер поезда, время отправления. Ввести данные в массив из пяти элементов типа train, упорядочить элементы по номерам поездов. Добавить возможность вывода информации о поезде, номер которого введен пользователем. Добавить возможность сортировки массив по пункту назначения, причем поезда с одинаковыми пунктами назначения должны быть упорядочены по времени отправления.
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+struct TRAIN
+{
+    public:
+        string destination;
+        int number;
+        string time;
+};
+
+bool compare(TRAIN a, TRAIN b)
+{
+    if (a.destination == b.destination) 
+    {
+        return a.time < b.time;
+    }
+    else {
+        return a.destination < b.destination;
+    }
+}
+
+bool compare_number(TRAIN a, TRAIN b)
+{
+    return a.number < b.number;
+}
+
+
+int main()
+{
+    //Преднабор фамилий, имен и групп для рандомного заполнения
+    string list_of_destinations[4] = {"Amsterdam", "Berlin", "Madrid", "Rome"};
+    string list_of_times[5] = {"10:00", "10:15", "10:30", "10:45", "11:00"};
+    
+    TRAIN trains[5];
+    //Заполняем таблицу поездов
+    int train_number=100;
+    for (int i=0; i<5; i++)
+    {
+        trains[i].destination = list_of_destinations[rand()%4];
+        trains[i].time = list_of_times[rand()%5];
+        trains[i].number = train_number;
+        train_number += 1;
+    }
+    
+    //Сортировка по номеру поезда
+    sort(trains, trains + 5, compare_number);
+    cout << "Sorting by number" << endl;
+    for (int i=0; i<5; i++)
+    {
+        cout << trains[i].destination << setw(10) << trains[i].number << setw(10) << trains[i].time << endl;
+    }
+
+    // Сортировка по пункту назначения и времени
+    sort(trains, trains + 5, compare);
+    cout << "Sorting by destination and time" << endl;;
+        for (int i=0; i<5; i++)
+    {
+        cout << trains[i].destination << setw(10) << trains[i].number << setw(10) << trains[i].time << endl;
+    }
+    //Вывод информации о поезде, введенном с клавиатуры
+    string trains_to_display = "";
+    bool train_exists;
+    for (int i=0; i<5; i++)
+    {
+        trains_to_display += " " + to_string(trains[i].number);
+    }
+    int chosen_train;
+    cout << "Type train number.\nAvailable: " << trains_to_display << endl << "To exit: type 0" << endl;;
+    while (true)
+    {
+        cout << "Train: ";
+        cin >> chosen_train;
+        if (chosen_train == 0)
+        {
+            cout << "Program finished!";
+            break;
+        }
+        else
+        {
+            train_exists = false;
+            for (int i=0; i<5; i++) {
+                if (trains[i].number == chosen_train)
+                {
+                    cout << trains[i].destination << setw(10) << trains[i].number << setw(10) << trains[i].time << endl;
+                    train_exists = true;
+                }
+            }
+            if (!train_exists){cout << "No such number!" << endl;}
+        }
+    }
+    
+    return 0;
+}
