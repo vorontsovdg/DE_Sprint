@@ -13,9 +13,9 @@ INSERT INTO jobs (job_id, job_name) VALUES ('IT_DM', 'Data Engineer');
 --Инфо о самих сотрудниках
 INSERT INTO employees
 VALUES
-(207, 'Ivanov', 'Ivan', 'Ivanovitch', '1984-01-05', '2022-08-01', 'IT_DM', 280, 'LEAD', 10500, TRUE),
-(208, 'Petrov', 'Petr', 'Petrovich', '1988-12-10', '2022-08-07', 'IT_DM', 280, 'SENIOR', 8000, TRUE),
-(209, 'Sidorov', 'Viktor', 'Vladimirovich', '1985-05-01', '2022-08-16', 'IT_DM', 280, 'MIDDLE', 6500, TRUE);
+(207, 'Ivan', 'Ivanov', 'Ivanovitch', '1984-01-05', '2022-08-01', 'IT_DM', 280, 'LEAD', 10500, TRUE),
+(208, 'Petr', 'Petrov', 'Petrovich', '1988-12-10', '2022-08-07', 'IT_DM', 280, 'SENIOR', 8000, TRUE),
+(209, 'Viktor', 'Sidorov', 'Vladimirovich', '1985-05-01', '2022-08-16', 'IT_DM', 280, 'MIDDLE', 6500, TRUE);
 
 --Инфо с оценками их работы(т.к. принимали их в августе, то оценок за 1 и 2 кв нет)
 INSERT INTO emp_results (employee_id, iii_kv, iv_kv)
