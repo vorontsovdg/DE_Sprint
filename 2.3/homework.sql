@@ -185,7 +185,7 @@ WITH EMP_RESULTS_NUMBER AS (
     FROM emp_results),
 emp_pct_table AS (
     SELECT employee_id,
-           V1 + V2 + V3 + V4 AS pct
+           1 + V1 + V2 + V3 + V4 AS pct
     FROM EMP_RESULTS_NUMBER
 )
 UPDATE employees AS e
