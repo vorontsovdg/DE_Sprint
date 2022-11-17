@@ -11,7 +11,7 @@
 	7. [Синтаксис языка программирования C++](https://github.com/vorontsovdg/DE_Sprint/tree/main/1.7)
 2. Базы данных
 	1. [Коллективная работа: GIT, CI/CD](https://github.com/vorontsovdg/git_test)
-	2. Программирование Scals
+	2. Программирование Scala
 	3. [Реляционные базы данных: PostgreSQL](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.3)
 	4. [Запросы и практика: SQL, join, union и др.](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.4)
 3. Обработка данных
