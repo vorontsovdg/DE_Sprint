@@ -15,3 +15,4 @@
 	3. [Реляционные базы данных: PostgreSQL](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.3)
 	4. [Запросы и практика: SQL, join, union и др.](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.4)
 3. Обработка данных
+	1. [Распределенные файловые системы: HDFS](https://github.com/vorontsovdg/DE_Sprint/tree/main/3.1)
