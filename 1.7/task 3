@@ -16,8 +16,8 @@ int main()
     if (d < 0) {
         cout << "The discriminant is less than 0 there are no real roots" << endl;}
     else {
-        double x1 = -1 * b + sqrt(d);
-        double x2 = -1 * b - sqrt(d);
+        double x1 = (-1 * b + sqrt(d)) / 2 * a;
+        double x2 = (-1 * b - sqrt(d)) / 2 * a;
         cout << "roots of the equation: x1 = " << x1 << " x2 = " << x2 << endl;
     }
     return 0;
