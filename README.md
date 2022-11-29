@@ -14,7 +14,7 @@
 <details open ><summary><b>2. Базы данных </b>:elephant:</summary>
 
 > 2.1. [Коллективная работа: GIT, CI/CD](https://github.com/vorontsovdg/git_test)<br>
-2.2. Программирование Scala<br>
+2.2. [Программирование Scala](https://github.com/vorontsovdg/Scala_Homework)<br>
 2.3. [Реляционные базы данных: PostgreSQL](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.3)<br>
 2.4. [Запросы и практика: SQL, join, union и др.](https://github.com/vorontsovdg/DE_Sprint/tree/main/2.4)<br>
 </details>
